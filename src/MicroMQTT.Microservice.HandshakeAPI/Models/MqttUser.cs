@@ -8,11 +8,13 @@ namespace MicroMQTT.Microservice.HandshakeAPI.Models
     {
         public ulong Id { get; set; }
 
+        public string Identity { get; set; }
+
         public string Username { get; set; }
 
         public string Password { get; set; }
 
-        public DateTime HandshakeAt { get; set; }
+        public DateTime LastHandshakeAt { get; set; }
 
     }
 }

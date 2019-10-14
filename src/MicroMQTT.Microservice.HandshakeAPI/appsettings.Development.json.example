@@ -8,5 +8,6 @@
   },
   "ConnectionStrings": {
     "DefaultConnection": "server=HOSTNAME;port=3306;database=DB;uid=USER;password=PASS"
-  }
+  },
+  "HandshakeOnboardingToken": "foo"
 }
