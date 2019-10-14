@@ -2,6 +2,8 @@
 
 Microservice-based handshake API using MySQL as data-layer with ACL support for micro-mqtt-broker. Used to register and handshake with new devices on-demand.
 
+Project status: Work in progress, not functional.
+
 The best use for this project is to fork it and adapt to your needs, or integrate it into another service. The nature of the handshake registration is very business logic related.
 The default implementation here grants full access to every new device.
 
