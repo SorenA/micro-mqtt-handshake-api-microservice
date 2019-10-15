@@ -44,6 +44,55 @@ The folder `/sql` contains scripts for creating the tables with minimum needed f
 
 The passwords for the example users can be read in the seed script comments.
 
+## Registering a device
+
+A new device can be onboarded on-demand using the `/register` endpoint. The onboarding token is only required if the service is configured with it.
+
+```http
+POST /register
+{
+    "onboardingToken": "foo"
+}
+```
+
+The response will then look like the following, given the registration was successful.
+
+```json
+{
+    "isSuccessful": true,
+    "identity": "id-y8GxLk62xqMpNLltmUvNqRm5iTK472D4SrtQUnaM7a43nll8nBmUvh6gWLP1Z",
+    "username": "un-C45nSWgcVZ93iPQXsS7sMQ6PsJvvM",
+    "password": "vyIUJtGsbDThObamx4Ssj0QyKPvOpgum"
+}
+```
+
+The `identity` should be saved as a secret on the device, it's used to handshake and should not be shared.
+
+The `username` and `password` fields are the values used to sign in to related services, like the [Micro MQTT Broker](https://github.com/SorenA/micro-mqtt-broker).
+
+The default ACL for newly onboarded devices is full access.
+
+## Handshaking a device
+
+Handshakes can be completed using the `/` endpoint, the current handshake doesn't do anything but log the handshake to the database.
+
+```http
+POST /
+{
+    "identity": "id-y8GxLk62xqMpNLltmUvNqRm5iTK472D4SrtQUnaM7a43nll8nBmUvh6gWLP1Z"
+}
+```
+
+The response will then look like the following, given the handshake was successful.
+
+```json
+{
+    "isSuccessful": true
+}
+```
+
+In specific implementations the handshake could be used to register firmware versions, regenerate identity token or rotate login from registration.
+
 ## Development
 
 Copy `appsettings.Development.json.example` to  `appsettings.Development.json` and configure it to your local environment.
