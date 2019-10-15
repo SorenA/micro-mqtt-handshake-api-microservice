@@ -26,7 +26,7 @@ namespace MicroMQTT.Microservice.HandshakeAPI.Controllers
             this.logger = logger;
             this.dbContext = dbContext;
 
-            OnboardingToken = config.GetValue<string>("HandshakeOnboardingToken");
+            OnboardingToken = config.GetValue<string>("OnboardingToken");
             IsOnboardingTokenEnabled = !string.IsNullOrEmpty(OnboardingToken);
         }
 

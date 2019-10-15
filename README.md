@@ -2,10 +2,8 @@
 
 Microservice-based handshake API using MySQL as data-layer with ACL support for micro-mqtt-broker. Used to register and handshake with new devices on-demand.
 
-Project status: Work in progress, not functional.
-
-The best use for this project is to fork it and adapt to your needs, or integrate it into another service. The nature of the handshake registration is very business logic related.
-The default implementation here grants full access to every new device.
+**The best use for this project is to fork it and adapt to your needs, or integrate it into another service. The nature of the handshake and registration is very business specific.
+The default implementation here grants full access to every new device.**
 
 This could be where devices may be onboarded using different access rights, or include payloads about the firmware version.
 
@@ -33,10 +31,10 @@ Defaults for environment variables:
 
 ```env
 ConnectionStrings__DefaultConnection=server=$(DB_HOST);port=3306;database=$(DB_DATABASE);uid=$(DB_USERNAME);password=$(DB_PASSWORD)
-HandshakeOnboardingToken=test-token
+OnboardingToken=test-token
 ```
 
-If no HandshakeOnboardingToken is present, it will not be required from the registring devices in the requests, allowing open access to registration of new devices.
+If no OnboardingToken is present, it will not be required from the registring devices in the requests, allowing open access to registration of new devices.
 
 ## Database
 
